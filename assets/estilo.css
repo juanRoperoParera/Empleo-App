@@ -1,0 +1,1404 @@
+/* COLORES */
+:root {
+    --secundario: #d3dddb;
+    --secundariomid:#d3dddb9a; 
+    --secundarioLow: #d3dddb23;
+    --secundarioLowest: #d3dddb15;
+    --principal: #0a3d52;
+    --principallow: #5d7e8a;
+    --principallowest: #0a3c52d8;
+    --principalhighest: #0a3c523f;
+    --principallil: #0a3c5225;
+    --cardbackground: #0a3c5210;
+    --detalles: #ccbe00;
+    --texto: #293136;
+    --correcto : rgb(34, 105, 34);
+    --correctoBackground: rgba(34, 105, 34, 0.39);
+    --error : rgb(116, 0, 0);
+    --abierta: #33333336;
+    --aceptada: rgba(18, 102, 18, 0.404);
+    --rechazada: rgba(136, 23, 23, 0.384);
+    --alta: rgb(184, 12, 12);
+    --media: rgb(20, 121, 116);
+    --menor: rgba(86, 99, 96, 0.534);
+}
+
+/* GENERAL */
+body{
+    color: var(--texto);
+    background-color: var(--secundario);
+    box-sizing: border-box;
+    margin: 0px;
+}
+.contenedor{
+    width: 75%;
+    margin: auto;
+}
+h2{
+    position: absolute;
+}
+p{
+    font-family: 'Jost', sans-serif;
+}
+h2::after{
+    content: "";
+    background-color:  var(--detalles);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 5px;
+}
+h1,h2,h3,h4,h5{
+    color: var(--principal);
+    font-family: 'Josefin Sans', sans-serif;
+}
+a{
+    text-decoration: none;
+    -webkit-transition: 0.6s;
+}
+input{
+    -webkit-transition: 0.6s;
+}
+a.boton{
+    background-color: var(--principal);
+    color: var(--secundario);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 4px;  
+    font-family: 'Josefin Sans', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+a.boton:hover{
+    color: var(--detalles);
+}
+.navegacion{
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 5rem;
+}
+.navegacion a{
+    color: var(--principal);
+    font-size: 1.2rem;
+}
+input{
+    font-family: 'Jost', sans-serif;
+}
+input:focus{
+    outline: none;
+}
+
+.card-shadow{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.error, .correcto{
+    width: fit-content;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    font-size: 1.15rem;
+}
+.error{
+    background-color: var(--error);
+    color: var(--secundario);
+}
+.correcto{
+    background-color: var(--correcto);
+    color: var(--secundario);
+}
+.correcto p, .error p{
+    margin: 0px;
+}
+
+/* HEADER */
+header{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    padding: 1rem 4rem 1rem 4rem;
+    background-color: var(--principallow);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    z-index: 99;
+}
+
+
+header a.boton{
+    padding: 1rem;
+}
+.nav-left{
+    display: flex;
+}
+a.logo{
+    width: 50px;
+    margin-right: 2rem;
+}
+a.logo img{
+    width: 100%;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav.completo{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--principallowest);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+nav.completo .logo{
+    display: none;
+}
+
+header>nav.completo>ul{
+    flex-direction: column;
+    align-items: center;
+}
+
+header>nav.completo *{
+    margin-bottom: 1rem;
+}
+
+header>nav.completo>ul>li{
+    display: block;
+    margin-bottom: 1rem;
+    border: 0px;
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+nav li{
+    list-style: none;
+    padding: 0rem 1rem 0rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid var(--secundarioLowest);
+}
+
+nav a{
+    color: var(--secundario);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 0.2rem;
+    -webkit-transition: 0.6s;
+}
+
+nav a:hover{
+    color: var(--principal);
+}
+nav a:active{
+    color: var(--principal);
+}
+
+.slider{
+    background-color: var(--principallowest);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 5.1rem;
+}
+
+.slider .slide-track{
+    display: flex;
+    animation: scroll 100s linear infinite;
+    -webkit-animation: scroll 100s linear infinite;
+    width: calc(500px * 14);
+}
+
+.slider .slide{
+    padding:0rem 4rem 0rem 4rem;
+    border-right: 1px solid var(--detalles);
+    text-transform: uppercase;
+}
+.slider .slide p{
+    width: 100%;
+    font-size: 1rem;
+    color: var(--secundario);
+    margin: 0px;
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0); 
+    }
+    100% {
+        -webkit-transform: translateX(calc(-500px * 7));
+        transform: translateX(calc(-500px * 7));
+    }
+}
+/* MAIN */
+main{
+    min-height: 70vh;
+    margin-top: 10rem;
+}
+
+main.navIndex {
+    margin-top: 6rem;
+}
+
+/* INDEX */
+section.carrousel{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10rem;
+}    
+
+section.carrousel>div{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    padding: 0px;
+}
+
+section.carrousel img{
+    border-radius: 4px;
+    width: 100%;
+    height: 28rem;
+    object-fit: cover;
+}
+
+section.carrousel .carousel-caption{
+    background-color: var(--principallowest);
+    width: 100%;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    min-height: 9rem;
+    padding: 1rem 15rem 1rem 15rem;
+    border-radius: 4px;
+}
+
+section.carrousel .carousel-caption h5{
+    color: var(--detalles);
+    text-transform:uppercase;
+    font-size: 2rem;
+}
+
+section.carrousel .carousel-caption p{
+    color: var(--secundario);
+    margin-top: 1rem;
+    font-weight: 900;
+}
+span.carousel-control-next-icon, span.carousel-control-prev-icon{
+    background-color: var(--principallow);
+    border-radius: 4px;
+}
+
+.ultimas-ofertas{
+    text-align: center;
+    margin-bottom: 10rem;
+}
+.ofertas{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 75%;
+}
+
+.ofertas .card{
+    width: 15% !important;
+    min-width: 275px;
+    height: 20rem;
+    background-color: var(--cardbackground);
+    color: var(--principal);
+    border: 0px;  
+    margin: 2rem 1rem 2rem 1rem;  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ofertas .card img{
+    width: 45%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+.ofertas .card .card-body{
+    margin-bottom: 6.5rem;
+}
+.ofertas .card .enlace{
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    margin: 0px;
+    margin-bottom: 1rem;
+}
+
+
+.registro{
+    background-color: var(--principallowest);
+    margin-top: 5rem;
+    padding: 8rem 0rem 8rem 0rem;
+    text-align: center;
+    
+}
+.registro>h4{
+    color: var(--secundario);
+    margin-bottom: 1.5rem;
+}
+.registro .contenido{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.registro .contenido a.boton{
+    padding: 2rem 4rem 2rem 4rem;
+    width: 100%;
+}
+.registro .contenido>div{
+    margin: 0rem 1rem 0rem 1rem;
+}
+.registro p{
+    margin-bottom: 5rem;
+    color: var(--secundario);
+}
+.registro a.sesion{
+    color: var(--detalles);
+}
+.registro .contenido div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* INICIO SESION */
+.sesion{
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+.sesion h3{
+    background-color: var(--principal);
+    color: var(--secundario);
+    padding: 1rem 0rem 1rem 0rem;
+    margin: 0px;
+    border-radius: 4px 4px 0px 0px;
+}
+.sesion.inicio{
+    width: 20%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+.sesion .formulario{
+    padding: 2rem 0rem 2rem 0rem;
+    background-color: var(--principallow);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0px 0px 4px 4px;
+    flex-wrap: wrap;
+
+}
+.sesion .formulario form{
+    width: 100%;
+}
+.sesion .formulario input{
+    width: 47%;
+    border: 0px;
+    background-color: var(--secundariomid);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    margin: 1rem 0.5rem 1rem 0.5rem;
+}
+.sesion.inicio .formulario input{
+    width: 80%;
+}
+.sesion .formulario input:focus{
+    background-color: var(--secundario);
+}
+.sesion .formulario .mantener{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secundario);
+    padding: 0px;
+}
+.sesion .formulario .mantener input[type=checkbox]{
+    width: 2.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+.sesion .formulario .mantener input[type=checkbox]:checked{
+    background-color: var(--detalles);
+    outline: 0px;
+}
+.sesion .formulario .mantener input[type=checkbox]:focus{
+    outline: 4px solid var(--secundariomid);
+    border: 0px;
+}
+.sesion .formulario input[type=submit]{
+    display: block;
+    width: fit-content;
+    margin: auto;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    background-color: var(--principal);
+    color: var(--secundario);
+}
+.sesion .formulario input[type=file]:before{
+    content: "* Selecciona una imagen para el logo";
+    color: var(--principal);
+    position: relative;
+    display: block;
+    background-color: var(--principallow);
+    color: var(--secundario);
+    margin-bottom: 0.5rem;
+    padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+    border-radius: 4px;
+}
+.sesion .formulario input[type=submit]:hover{
+    color: var(--detalles);
+    background-color: var(--principal);
+}
+
+.contenedor-inicio-sesion{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.contenedor-inicio-sesion>p{
+    width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    color: var(--principal);
+}
+.contenedor-inicio-sesion a{
+    color: var(--principal);
+    font-weight: 900;
+}
+
+/* OFERTA COMPLETA */
+.info-oferta{
+    width: 50%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 2rem;
+    background-color: var(--cardbackground);
+    padding: 2rem 4rem 2rem 4rem;
+    border-radius: 4px;
+}
+.info-oferta .oferta-portada{
+    grid-column: 1/-1;
+    width: 100%;
+    height: 8rem;
+    object-fit: cover;
+    margin-bottom: 5rem;
+    border-radius: 4px;
+}
+.info-oferta .titulo{
+    grid-column: 1/-1;
+}
+.info-oferta .tarea{
+    grid-column: 1/-1;
+    background-color: var(--principallil);
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+.info-oferta .tarea .eliminar{
+    color: var(--error);
+}
+.completada{
+    color: var(--secundario);
+    background-color: var(--principallow);
+    padding: 0.25rem;
+    border-radius: 4px;
+}
+.verde{
+    background-color: var(--correctoBackground) !important;
+}
+.Alta{
+    border-left: 10px solid var(--alta);
+}
+.Media{
+    border-left: 10px solid var(--media);
+}
+.Menor{
+    border-left: 10px solid var(--menor);
+}
+.info-oferta .tarea>p{
+    font-size: 1.5rem;
+}
+.limpiarTareas{
+    margin-bottom: 1rem;
+}
+.chatenlace{
+    margin-top: 1rem;
+}
+.tarea-trabajador{
+    width: 90%;
+    background-color: var(--principallil);
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+.info-oferta .oferta-empresa{
+    grid-column: 1/3;
+    margin-bottom: 3rem;
+}
+.info-oferta .oferta-empresa h3{
+    font-size: 2.5rem;
+}
+.info-oferta .oferta-empresa p{
+    font-size: 1.5rem;
+}
+.info-oferta .oferta-logo{
+    grid-column: 3/4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.info-oferta .oferta-logo img{
+    width: 15%;
+    object-fit: contain;
+    min-width: 30px;
+}
+.info-oferta .oferta-descripcion{
+    grid-column: 1/-1;
+}
+.info-oferta .oferta-descripcion p{
+    font-size: 1.15rem;
+    line-height: 2.5rem;
+}
+.info-oferta a{
+    grid-column: 2/3;
+    text-align: center;
+    margin-top: 3rem;
+}
+.etiquetas{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+.etiquetas a.etiqueta{
+    background-color: var(--principallow);
+    color: var(--secundario);
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    font-size: 0.9rem;
+}
+.etiquetas a.etiqueta:hover{
+    background-color: var(--principal);
+}
+form.inscripcion{
+    grid-column: 1/-1;
+    width: fit-content;
+    margin: auto;
+    margin-top: 2rem;
+}
+form.inscripcion input{
+    width: 100%;
+    background-color: var(--principal);
+    padding: 0.5rem;
+    color: var(--secundario);
+    border: 0px;
+    border-radius: 4px;
+}
+
+form.inscripcion input:hover{
+    color: var(--detalles);
+}
+/* EMPRESA COMPLETA */
+img.portada{
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+.info-empresa{
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.info-empresa .logo{
+    grid-column: 3/4;
+    display: flex;
+    justify-content:flex-end;
+}
+
+.info-empresa .logo img{
+    width: 20%;
+    object-fit: contain;
+    min-width: 30px;
+}
+
+.info-empresa h3{
+    grid-column: 1/-1;
+    text-align: center;
+    background-color: var(--principallowest);
+    color: var(--secundario);
+    padding: 0.15rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+.info-empresa .ofertas{
+    grid-column: 1/-1;
+    
+    /* 
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+}
+.ofertas .card{
+    width: 23% !important;
+}
+
+/* INTERESES */
+section.intereses form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+section.intereses form .contenido{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+section.intereses .interes p{
+    font-size: 1.25rem;
+    margin: 0px;
+    margin-left: 1rem;
+}
+section.intereses .interes p.añadido{
+    width: 100%;
+    margin: 0px;
+}
+section.intereses input[type="checkbox"]{
+    transform: scale(1.4);
+    -webkit-transform: scale(1.4); /* Safari y Chrome */
+    -moz-transform: scale(1.4); /* Firefox */
+    -ms-transform: scale(1.4); /* Internet Explorer */
+    -o-transform: scale(1.4); /* Opera */
+    cursor: pointer;
+    background-color: black !important;
+}
+section.intereses form .contenido .interes{
+    background-color: var(--cardbackground);
+    margin: 0.8rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 4px;
+    min-height: 6rem;
+}
+
+section.intereses form .contenido .interes.añadido{
+    background-color: var(--correctoBackground);
+
+}
+
+
+section.intereses form .contenido .interes a.eliminar{
+    color: var(--error);
+}
+
+section.intereses .checkbox{
+    margin-top: 2rem;
+}
+section.intereses .checkbox input[type='checkbox']{
+    margin-right: 1rem;
+}
+section.intereses input[type="submit"]{
+    width: fit-content;
+    display: block;
+    margin: auto;
+    background-color: var(--principal);
+    color: var(--secundario);
+    border: 0px;
+    border-radius: 4px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin-top: 4rem;
+}
+section.intereses input[type="submit"]:hover{
+    color: var(--detalles);
+}
+
+/* EMPLEO */
+main.sinmargen{
+    margin-top: 4rem;
+}
+img.portadaEmpleo{
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.empleo{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 4fr 3fr;
+    margin-bottom: 10rem;
+    margin-top: 2rem;
+    
+}
+.empleo a.eliminar{
+    color: var(--error);
+}
+.empleo .buscador{
+    grid-column: 3/4;
+    margin-top: -12rem;
+}
+.empleo .buscador form{
+    background-color: var(--principallow);
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.empleo .buscador form input{
+    width: 90%;
+    border-radius: 4px;
+    border: 0px;
+    background-color: var(--secundarioLow);
+    padding: 0.5rem;
+    color: var(--secundario);
+}
+.empleo .buscador form input::placeholder{
+    color: var(--secundariomid);
+}
+.empleo .buscador form button{
+    background-color: #00000000;
+    border: 0px;
+}
+.empleo .buscador form i{
+    font-size: 1.25rem;
+    width: fit-content;
+    color: var(--secundariomid);
+    -webkit-transition: 0.3s;
+}
+.empleo .buscador form i:hover{
+    color: var(--secundario);
+    transition: 0.3s;
+}
+.empleo .buscador form input:focus{
+    background-color: var(--secundarioLowest);
+}
+.empleo .filtros{
+    grid-column: 1/2;
+    margin-right: 1rem;
+}
+
+.empleo .filtros ul{
+    padding: 0px;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.empleo .filtros ul li{
+    list-style-type: none;
+    margin: 0rem 0rem 0.5rem 0rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: var(--principallow);
+    -webkit-transition: 0.5s;
+}
+
+.empleo .filtros ul li:hover{
+    background-color: var(--principallowest);
+    transition: 0.3rem;
+}
+
+.empleo .filtros ul li>a{
+    color: var(--secundario);
+    width: 100%;
+}
+
+.empleo .filtros ul li.buscada{
+    background-color: var(--principallowest);
+}
+
+.empleo .filtros ul li.buscada>a{
+    color: var(--detalles);
+}
+.empleo p.sinresultados{
+    font-size: 1.3rem;
+}
+
+.resultados{
+    grid-column: 2/4;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+    margin-left: 2rem;
+}
+.resultados h3{
+    width: 100%;
+    margin-top: 1rem;
+}
+.empleo .resultados .card img{
+    width: 20%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+.empleo .resultados .card{
+    text-align: center;
+    width: 20% !important;
+    max-height: 280px;
+    background-color: var(--cardbackground);
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    margin: 1rem;
+    min-width: 220px;
+    border: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    -webkit-transition: 0.5s;
+}
+
+.empleo .resultados .card:hover{
+    background-color: var(--principalhighest);
+    transition: 0.3s;
+}
+
+.empleo .resultados .card .card-body{
+    margin-bottom: 3.5rem;
+}
+.empleo .resultados .card .enlace{
+    width: 90%;
+    position: absolute;
+    bottom: 0px;
+    margin: 0px;
+    margin-bottom: 1rem;
+}
+
+/* CUENTA USUARIO */
+.cuenta{
+    width: 50%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cuenta a{
+    width: 95%;
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 1.5rem;
+    border-radius: 4px;
+    font-size: 1.25rem;
+}
+
+.cuenta a.opcion{
+    color: var(--secundario);
+    background-color: var(--principallow);
+}
+.cuenta a.opcion:hover{
+    background-color: var(--principallowest);
+    color: var(--detalles);
+}
+
+div.cerrar{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 5rem;
+}
+a.cerrar{
+    color: var(--error);
+}
+
+.menu a:hover{
+    background-color: var(--principallowest);
+}
+
+/* CUENTA EMPRESA */
+.misdatos .preview{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    border: 0.8rem solid var(--principalhighest);
+    border-radius: 4px;
+}
+.misdatos img{
+    width: 20%;
+    height: 8rem;
+    margin: auto;
+    padding: 0.5rem;
+    object-fit: contain;
+    min-width: 30px;
+    background-color: var(--secundariomid);
+}
+.misdatos img.portadaCuenta{
+    width: 80%;
+    height: 8rem;
+    padding: 0px;
+    object-fit: cover;
+}
+.misdatos h4{
+    width: 80%;
+    font-size: 1.25rem;
+    text-align: left;
+    height: 8rem;
+    margin: 0px;
+    padding: 2rem;
+    background-color: var(--secundariomid);
+}
+.misdatos form input.portada[type=file]:before{
+    content: "* Selecciona una imagen para la portada";
+    color: var(--principal);
+    position: relative;
+    display: block;
+    background-color: var(--principallow);
+    color: var(--secundario);
+    margin-bottom: 0.5rem;
+    padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+    border-radius: 4px;
+}
+
+/* CANDIDATURAS */
+.limpiar{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    min-height: 3rem;
+}
+.limpiar a{
+    margin-right: 0.8rem;
+}
+section.candidaturasMain{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    background-color: #0a3c5200;
+    flex-wrap: wrap;
+}
+.candidaturas{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    background-color: var(--cardbackground);
+    border-radius: 4px;
+    padding-bottom: 1rem;
+    margin-bottom: 5rem;
+}
+.candidaturas.empresa{
+    width: 48%;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    margin-top: 1rem;
+    height: fit-content !important;
+}
+.candidaturas h3{
+    background-color: var(--principal);
+    color: var(--secundario);
+    border-radius: 4px 4px 0px 0px;
+    padding: 0.5rem;
+}
+.candidaturas .candidatura{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 2rem 3rem 0.5rem 3rem ;
+    background-color: var(--principallil);
+    border-radius: 4px;
+    padding: 1rem;
+}
+.candidaturas.empresa .candidatura{
+    margin: 1rem 1rem 1rem 1rem ;
+}
+.candidaturas .candidatura .info{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    text-align: left;
+}
+.candidaturas .candidatura .info h4{
+    width: 100%;
+    margin: 0px;
+}
+.candidaturas .candidatura .info p{
+    width: 100%;
+    margin: 0px;
+}
+.candidaturas .candidatura .info a{
+    color: var(--principal);
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+.candidaturas .candidatura img{
+    width: 5%;
+    object-fit: contain;
+}
+.candidaturas .candidatura .estado{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+.candidaturas .candidatura .estado.abierta{
+    background-color: var(--abierta);
+}
+.candidaturas .candidatura .estado.rechazada{
+    background-color: var(--rechazada);
+}
+.candidaturas .candidatura .estado.aceptada{
+    background-color: var(--aceptada);
+}
+.candidaturas .candidatura .estado p{
+    font-size: 1.15rem;
+    margin: 0px;
+}
+.candidaturas .candidatura .estado a{
+    color: var(--error);
+}
+
+.candidaturas .candidatura .opciones{
+    width: 100%;
+    padding: 0.25rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+}
+.candidaturas .candidatura .opciones a{
+    color: var(--texto);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+}
+.candidaturas .candidatura .opciones a.aceptar{
+    background-color: var(--aceptada);
+}
+.candidaturas .candidatura .opciones a.rechazar{
+    background-color: var(--rechazada);
+}
+.candidaturas .candidatura .opciones a.ver{
+    background-color: var(--principalhighest);
+}
+
+/* PUBLICAR OFERTAS */
+.sesion.publicarOferta .formulario input[type="text"],.sesion.publicarOferta .formulario input[type="number"]{
+    width: 90% ;
+}
+.sesion.publicarOferta .formulario textarea{
+    width: 90% ;
+    background-color: var(--secundariomid);
+    border-radius: 4px;
+    -webkit-transition: 0.3s;
+    resize: none;
+    height: 15rem;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+}
+.sesion.publicarOferta .formulario textarea:focus{
+    background-color: var(--secundario);
+    border: 0px;
+    outline: none;
+}
+
+.sesion.publicarOferta .formulario select{
+    background-color: var(--principallow);
+    color: var(--secundario);
+    margin-top: 2rem;
+    padding: 0.5rem;
+    border: 0px;
+}
+.sesion.publicarOferta .formulario select option{
+    color: var(--texto);
+}
+
+/* PROYECTO COMPLETO */
+.trabajadorProyecto{
+    background-color: var(--principalhighest);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin: 0.5rem;
+}
+.trabajadorProyecto a.eliminar{
+    color: var(--error);
+}
+
+/* CHAT */
+h1#chath1{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    background-color: var(--principal);
+    color: var(--secundario);
+    padding: 0.5rem;
+    border-radius: 4px 4px 0px 0px;
+}
+.chat{
+    width: 50%;
+    background-color: var(--principallil);
+    padding: 0.5rem;
+    border-radius: 4px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 2rem;
+}
+#nombre, #nombreProyecto{
+    display: none;
+}
+.mensajes{
+    grid-row: 1/2;
+    min-height: 30rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+}
+.mensajes p{
+    width: 100%;
+    font-size: 1.15rem;
+}
+.mensajes p.izq{
+    text-align: left;
+}
+.mensajes p.der{
+    text-align: right;
+}
+.escribir{
+    grid-row: 2/3;
+    width: 100%;
+    display: flex;
+}
+.escribir input[type="text"]{
+    width: 80%;
+    border-radius: 4px;
+    background-color: var(--secundario);
+    border: 0px;
+    padding: 0.5rem;
+}
+.escribir input[type="button"]{
+    width: 20%;
+    border: 0px;
+    background-color: var(--principal);
+    color: var(--secundario);
+    border-radius: 4px;
+}
+
+/* FOOTER */
+footer{
+    color: var(--secundario);
+    background-color: var(--principallow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 8rem 2rem 8rem;
+    margin-top: 5rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+footer.index{
+    margin-top: 0px;
+}
+
+footer img{
+    width: 5%;
+    min-width: 70px;
+    object-fit: contain;
+}
+
+footer ul{
+    margin: 0px;
+}
+
+footer li{
+    list-style: none;
+    color: var(--principal);
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+footer i{
+    margin-right: 1.2rem;
+    font-size: 1.5rem;
+}
+
+.mobile{
+    display: none;
+}
+
+.abrirMenu{
+    color: var(--secundario);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.oculto{
+    display: none !important;
+}
+
+.cerrarMenu{
+    color: var(--secundario);
+    font-size: 2rem;
+    cursor: pointer;
+}
+/* MEDIA */
+
+@media (max-width: 1300px) {
+    .sesion{
+        width: 90%;
+    }
+
+    .sesion.inicio{
+        width: 90%;
+    }
+
+    .sesion .formulario input {
+        width: 80%;
+    }
+}
+
+
+
+@media (max-width: 1000px) {
+    .registro .contenido {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .registro .contenido div {
+        margin-top: 2rem;
+    }
+
+    footer{
+        padding: 3rem 1rem 3rem 1rem;
+    }
+
+    .empleo .filtros {
+        grid-column: 1/-1;
+        margin-right: 1rem;
+    }
+
+    .resultados {
+        grid-column: 1/-1;
+        margin: 0px;
+    }
+    
+    .empleo .resultados .card {
+        margin: auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .empleo .buscador {
+        grid-column: 1/-1;
+    }
+
+    header{
+        padding: 1rem;
+    }
+
+    header>nav>ul>li{
+        display: none;
+    }
+
+    a.logo {
+        margin-right: 0px;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    .candidaturas{
+        width: 90%;
+    }
+
+    .contenedor{
+        width: 90%;
+    }
+
+    .cuenta{
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    section.intereses form .contenido {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    section.intereses form .contenido .interes {
+        margin: 1rem 0px;
+    }
+
+    .info-oferta {
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .info-oferta .oferta-empresa h3 {
+        font-size: 1.5rem;
+    }
+
+    .info-oferta .oferta-logo {
+        justify-content: left;
+        margin: 2rem auto;
+    }
+
+    .candidaturas .candidatura {
+        margin: 1rem;
+    }
+
+    header a.boton {
+        font-size: 0.75rem;
+    }
+
+    .candidaturas.empresa {
+        width: 100%;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+        margin-top: 1rem;
+        height: fit-content !important;
+    }
+}
+
+@media (max-width: 800px) {
+    section.carrousel {
+        width: 100%;
+        margin: auto;
+        margin-bottom: 5rem;
+    }
+
+    section.intereses form .contenido {
+        grid-template-columns: 1fr;
+    }
+}
+
